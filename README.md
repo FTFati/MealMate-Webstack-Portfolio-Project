@@ -6,9 +6,9 @@ You can connect with me on [LinkedIn](https://www.linkedin.com/in/fatima-amkacho
 
 [Go To MealMate](https://mealmatapp.netlify.app/)
 
-![Home Page](images/home1.jpg)
-![Home Page](images/home2.jpg)
-![Task List](images/Wishlist.jpg)
+![Home Page](mealmate/images/home1.jpg)
+![Home Page](mealmate/images/home2.jpg)
+![Task List](mealmate/images/Wishlist.jpg)
 ## Features
 
 - <b>Ingredient-Based Search:</b> Enter an ingredient to find recipes.
