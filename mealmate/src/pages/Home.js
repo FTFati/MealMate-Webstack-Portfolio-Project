@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { fetchRecipes } from '../api';
 import RecipeCard from '../components/RecipeCard';
 
-function Home() {
+function Home({ addToWishlist }) {
   const [ingredient, setIngredient] = useState('');
   const [recipes, setRecipes] = useState([]);
-  const [wishlist, setWishlist] = useState([]);
 
   const searchRecipes = async () => {
     if (!ingredient) {
@@ -14,12 +13,6 @@ function Home() {
     }
     const results = await fetchRecipes(ingredient);
     setRecipes(results);
-  };
-
-  const addToWishlist = (recipe) => {
-    if (!wishlist.some((item) => item.id === recipe.id)) {
-      setWishlist([...wishlist, recipe]);
-    }
   };
 
   return (
