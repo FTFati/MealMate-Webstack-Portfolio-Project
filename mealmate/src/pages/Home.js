@@ -1,21 +1,4 @@
-import React, { useState } from 'react';
-import { fetchRecipes } from '../api';
-import RecipeCard from '../components/RecipeCard';
-
-function Home({ addToWishlist }) {
-  const [ingredient, setIngredient] = useState('');
-  const [recipes, setRecipes] = useState([]);
-
-  const searchRecipes = async () => {
-    if (!ingredient) {
-      alert('Please enter an ingredient.');
-      return;
-    }
-    const results = await fetchRecipes(ingredient);
-    setRecipes(results);
-  };
-
-  return (
+return (
     <div className="home">
       <header>
         <h1>MealMate</h1>
@@ -30,22 +13,19 @@ function Home({ addToWishlist }) {
         </div>
       </header>
       <main>
-        {recipes.length === 0 ? (
-          <p>No recipes found. Try another ingredient!</p>
-        ) : (
-          <div className="recipes-grid">
-            {recipes.map((recipe) => (
+        <div className="recipes-grid">
+          {recipes.length === 0 ? (
+            <p>No recipes found. Try another ingredient!</p>
+          ) : (
+            recipes.map((recipe) => (
               <RecipeCard
                 key={recipe.id}
                 recipe={recipe}
                 addToWishlist={addToWishlist}
               />
-            ))}
-          </div>
-        )}
+            ))
+          )}
+        </div>
       </main>
     </div>
-  );
-}
-
-export default Home;
+  );  
