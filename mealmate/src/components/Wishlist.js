@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Wishlist({ wishlist, removeFromWishlist }) {
+function Wishlist({ wishlist = [], removeFromWishlist }) {
   return (
     <div>
       <h2>My Wishlist</h2>
