@@ -1,4 +1,21 @@
-return (
+import React, { useState } from 'react';
+import { fetchRecipes } from '../api';
+import RecipeCard from '../components/RecipeCard';
+
+function Home({ addToWishlist }) {
+  const [ingredient, setIngredient] = useState('');
+  const [recipes, setRecipes] = useState([]);
+
+  const searchRecipes = async () => {
+    if (!ingredient) {
+      alert('Please enter an ingredient.');
+      return;
+    }
+    const results = await fetchRecipes(ingredient);
+    setRecipes(results);
+  };
+
+  return (
     <div className="home">
       <header>
         <h1>MealMate</h1>
@@ -28,4 +45,7 @@ return (
         </div>
       </main>
     </div>
-  );  
+  );
+}  
+
+export default Home;
