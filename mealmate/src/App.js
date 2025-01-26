@@ -9,6 +9,14 @@ import Wishlist from './components/Wishlist';
 function App() {
   const [wishlist, setWishlist] = useState([]);
 
+  const addToWishlist = (recipe) => {
+    if (!wishlist.some((item) => item.id === recipe.id)) {
+      setWishlist([...wishlist, recipe]);
+    } else {
+      alert('Recipe already in wishlist!');
+    }
+  };
+
   const removeFromWishlist = (index) => {
     setWishlist(wishlist.filter((_, i) => i !== index));
   };
@@ -17,7 +25,7 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home addToWishlist={addToWishlist} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/wishlist" element={<Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />} />
