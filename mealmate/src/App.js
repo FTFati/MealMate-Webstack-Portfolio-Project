@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -7,6 +7,12 @@ import Signup from './pages/Signup';
 import Wishlist from './components/Wishlist';
 
 function App() {
+  const [wishlist, setWishlist] = useState([]);
+
+  const removeFromWishlist = (index) => {
+    setWishlist(wishlist.filter((_, i) => i !== index));
+  };
+
   return (
     <Router>
       <Header />
@@ -14,7 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/wishlist" element={<Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />} />
       </Routes>
     </Router>
   );
