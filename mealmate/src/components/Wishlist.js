@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Wishlist({ wishlist = [], removeFromWishlist }) {
+function Wishlist({ wishlist, removeFromWishlist }) {
   return (
     <div>
       <h2>My Wishlist</h2>
@@ -8,7 +8,7 @@ function Wishlist({ wishlist = [], removeFromWishlist }) {
         <p>Your wishlist is empty.</p>
       ) : (
         wishlist.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="wishlist-item">
             <p>{item.title}</p>
             <button onClick={() => removeFromWishlist(index)}>Remove</button>
           </div>
