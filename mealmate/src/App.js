@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Wishlist from './components/Wishlist';
+import RecipeDetails from './components/RecipeDetails'; // Import the new RecipeDetails component
+import './App.css';
 
 function App() {
   const [wishlist, setWishlist] = useState([]);
@@ -29,6 +31,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/wishlist" element={<Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />} />
+        <Route path="/recipe/:id" element={<RecipeDetails />} /> {/* New route for recipe details */}
       </Routes>
     </Router>
   );

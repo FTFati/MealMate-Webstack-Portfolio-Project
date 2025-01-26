@@ -1,4 +1,5 @@
 import React from 'react';
+import RecipeCard from './RecipeCard'; // Import RecipeCard component
 
 function Wishlist({ wishlist, removeFromWishlist }) {
   return (
@@ -7,12 +8,15 @@ function Wishlist({ wishlist, removeFromWishlist }) {
       {wishlist.length === 0 ? (
         <p>Your wishlist is empty.</p>
       ) : (
-        wishlist.map((item, index) => (
-          <div key={index} className="wishlist-item">
-            <p>{item.title}</p>
-            <button onClick={() => removeFromWishlist(index)}>Remove</button>
-          </div>
-        ))
+        <div className="recipes-grid"> {/* Use same grid styling */}
+          {wishlist.map((item, index) => (
+            <RecipeCard
+              key={item.id}
+              recipe={item}
+              addToWishlist={() => {}} // Pass empty function, since adding to wishlist doesn't apply here
+            />
+          ))}
+        </div>
       )}
     </div>
   );

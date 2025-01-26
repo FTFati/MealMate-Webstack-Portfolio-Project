@@ -18,7 +18,7 @@ function Home({ addToWishlist }) {
   return (
     <div className="home">
       <header>
-        <h1>MealMate</h1>
+        <h1>Add an ingredient to get delicious recipes tailored to what you have!</h1>
         <div className="search-bar">
           <input
             type="text"
@@ -30,22 +30,22 @@ function Home({ addToWishlist }) {
         </div>
       </header>
       <main>
-        <div className="recipes-grid">
-          {recipes.length === 0 ? (
-            <p>No recipes found. Try another ingredient!</p>
-          ) : (
-            recipes.map((recipe) => (
+        {recipes.length === 0 ? (
+          <h1>No recipes found. Try another ingredient!</h1>
+        ) : (
+          <div className="recipes-grid">
+            {recipes.map((recipe) => (
               <RecipeCard
                 key={recipe.id}
                 recipe={recipe}
                 addToWishlist={addToWishlist}
               />
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </main>
     </div>
   );
-}  
+}
 
 export default Home;
