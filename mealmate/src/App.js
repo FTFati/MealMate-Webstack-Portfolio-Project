@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Home from './pages/Home';
 import Wishlist from './components/Wishlist';
 
-const App = () => {
+function App() {
   return (
     <Router>
       <Header />
@@ -18,6 +18,6 @@ const App = () => {
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;
